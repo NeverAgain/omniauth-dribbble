@@ -10,7 +10,7 @@ module OmniAuth
       }
 
       def request_phase
-        super
+         redirect client.auth_code.authorize_url(authorize_params)
       end
 
       def callback_phase
