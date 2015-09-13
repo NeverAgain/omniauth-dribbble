@@ -42,13 +42,6 @@ module OmniAuth
       def raw_info
         @raw_info ||= access_token.get('/v1/user').parsed
       end
-      
-      protected
-      
-      def build_access_token
-        verifier = request.params["code"]
-        client.auth_code.get_token(verifier}.merge(token_params.to_hash(:symbolize_keys => true)), deep_symbolize(options.auth_token_params))
-      end
     end
   end
 end
